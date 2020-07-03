@@ -1,16 +1,17 @@
-const ROOT_URL = 'https://dev.codementor.io/api/';
+import DirectPayment = require('./resources/DirectPayments');
 
 class Codementor {
-    apiKey:string;
+    [x: string]: any;
     constructor(apiKey: string) {
         this.apiKey = apiKey;
         if (typeof apiKey !== 'string') {
             throw new Error('Api Key should be a string');
         }
     }
+    self = this;
 
-    getVersion() {
-        return '0.0.1';
+    directPayment() {
+        return new DirectPayment(this.self.apiKey).fetch();
     }
 }
 
