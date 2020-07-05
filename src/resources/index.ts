@@ -18,14 +18,15 @@ class Base {
         return this.self.apiKey;
     }
 
-   async request(resource: string) {
+   async request(resource: string, params?: object) {
         let apiConfig: any = {};
         apiConfig= {
-            paramsSerializer: (params: PathLike) => qs.stringify(params, { indices: false }),
+            url: `/${resource}`,
+            params,
             returnRejectedPromiseOnError: true,
             withCredentials: true,
             timeout: 30000,
-            baseURL: `${this.getUrl()}/${resource}`,
+            baseURL: `${this.getUrl()}`,
             headers: {
                 'x-codementor-api-key': `${this.getApiKey()}`
             },
