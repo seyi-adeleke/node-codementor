@@ -1,6 +1,4 @@
 import axios from "axios";
-import { PathLike } from "fs";
-import * as qs from "qs";
 
 class Base {
     apiKey:string;
@@ -18,9 +16,10 @@ class Base {
         return this.self.apiKey;
     }
 
-   async request(resource: string, params?: object) {
+   async request(resource: string, params?: object, httpMethod: string = 'get') {
         let apiConfig: any = {};
         apiConfig= {
+            method: httpMethod,
             url: `/${resource}`,
             params,
             returnRejectedPromiseOnError: true,
@@ -32,7 +31,7 @@ class Base {
             },
         }
         return await this.makeRequest(apiConfig);
-    }
+   }
 
     private makeRequest = async (apiConfig: any) => {
         const response = await axios.request(apiConfig);

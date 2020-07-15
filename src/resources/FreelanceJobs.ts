@@ -5,8 +5,8 @@ class FreelanceJobs extends Base {
         super(apikey);
     }
 
-    fetch() {
-        return super.request('freelance-jobs');
+    fetch(startingAfter?: string) {
+        return super.request('freelance-jobs', {starting_after: startingAfter});
     }
 
 }

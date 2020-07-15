@@ -1,9 +1,9 @@
 const Codementor = require('./lib/index');
 
-const codementor = new Codementor('99a91c236992640e6d57');
+const codementor = new Codementor('');
 
-codementor.sessions('5foer0ruzq').then(sessions =>{
+codementor.declineSession('5eyyfic1fm').then(sessions =>{
     console.log(sessions)
 }).catch(error =>{
-    console.log(sessions)
+    console.log(error)
 });
