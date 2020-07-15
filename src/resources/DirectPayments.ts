@@ -5,8 +5,8 @@ class DirectPayment extends Base {
         super(apikey);
     }
 
-    fetch() {
-        return super.request('direct-payments');
+    fetch(startingAfter?: string) {
+        return super.request('direct-payments', {starting_after: startingAfter});
     }
 
 }

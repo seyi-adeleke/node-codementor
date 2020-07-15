@@ -2,6 +2,7 @@ import DirectPayment = require('./resources/DirectPayments');
 import FreelanceJobs = require('./resources/FreelanceJobs');
 import MonthlyPayout = require('./resources/MonthlyPayout');
 import Sessions = require('./resources/Sessions');
+import ScheduledSessions = require('./resources/ScheduledSessions');
 
 class Codementor {
     [x: string]: any;
@@ -28,6 +29,18 @@ class Codementor {
 
     async sessions() {
         return await new Sessions(this.self.apiKey).fetch();
+    }
+
+    async confirmSession(sessionId: string) {
+        return await new ScheduledSessions(this.self.apiKey).confirm(sessionId);
+    }
+
+    async rescheduleSession(sessionId: string) {
+        return await new ScheduledSessions(this.self.apiKey).reschedule(sessionId);
+    }
+
+    async declineSession(sessionId: string) {
+        return await new ScheduledSessions(this.self.apiKey).decline(sessionId);
     }
 }
 
