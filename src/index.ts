@@ -14,21 +14,20 @@ class Codementor {
     }
     self = this;
 
-    async directPayment() {
+    async directPayments() {
         return await new DirectPayment(this.self.apiKey).fetch();
     }
 
-    // add support for query strings
-    async freelanceJobs() {
-        return await new FreelanceJobs(this.self.apiKey).fetch();
+    async freelanceJobs(startingAfter?: string) {
+        return await new FreelanceJobs(this.self.apiKey).fetch(startingAfter);
     }
 
     async monthlyPayouts(payoutMonth:string) {
         return await new MonthlyPayout(this.self.apiKey).fetch(payoutMonth);
     }
 
-    async sessions() {
-        return await new Sessions(this.self.apiKey).fetch();
+    async sessions(startingAfter?: string) {
+        return await new Sessions(this.self.apiKey).fetch(startingAfter);
     }
 
     async confirmSession(sessionId: string) {
