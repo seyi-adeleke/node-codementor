@@ -1,7 +1,7 @@
 {
-  "name": "codementor",
+  "name": "node-codementor",
   "version": "1.0.0",
-  "description": "",
+  "description": "A wrapper for the codementor api",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -13,7 +13,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
+    "prepublishOnly": "npm run lint",
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
