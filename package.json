@@ -1,7 +1,7 @@
 {
-  "name": "codementor",
+  "name": "node-codementor",
   "version": "1.0.0",
-  "description": "",
+  "description": "A wrapper for the codementor api",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
